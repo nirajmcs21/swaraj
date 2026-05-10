@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swaraj Makhana — Desh ka Swad, Sehat ke Saath</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="lotus-spin">🪷</div>
+      <p>Harvesting goodness...</p>
+    </div>
+  </div>
+
+  <!-- CURSOR (disabled) -->
+  <div class="cursor" id="cursor" style="display:none"></div>
+  <div class="cursor-trail" id="cursorTrail" style="display:none"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <img src="assets/logo.png" alt="Swaraj Makhana Logo" class="logo-img" />
+      <span>Swaraj <em>Makhana</em></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#products">Shop</a></li>
+      <li><a href="#nutrition">Nutrition</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="openCart()">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="nav-cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" onclick="toggleMenu()">✕</button>
+    <ul>
+      <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+      <li><a href="#about" onclick="toggleMenu()">Our Story</a></li>
+      <li><a href="#products" onclick="toggleMenu()">Shop</a></li>
+      <li><a href="#nutrition" onclick="toggleMenu()">Nutrition</a></li>
+      <li><a href="#testimonials" onclick="toggleMenu()">Reviews</a></li>
+      <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <div class="floating-makhana" id="floatingMakhana"></div>
+    </div>
+
+    <!-- LEFT: Text -->
+    <div class="hero-content">
+      <div class="hero-badge">🌿 100% Natural · No Preservatives</div>
+      <h1 class="hero-title">
+        <span class="line1">The Sacred</span>
+        <span class="line2 gold"><em>Superfood</em></span>
+        <span class="line3">of Bihar</span>
+      </h1>
+      <p class="hero-italic">"Pure by nature, Wholesome for life"</p>
+      <p class="hero-subtitle">Hand-harvested lotus seeds from the pristine ponds of Mithila. Ancient nutrition. Modern wellness. Delivered worldwide.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+          Shop Now →
+        </button>
+        <button class="btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+          Our Story
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">50K+</span><span class="stat-label">Happy Customers</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">28+</span><span class="stat-label">States Covered</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Organic Certified</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Orbiting Makhana Visual -->
+    <div class="hero-image">
+      <div class="orbit-system">
+        <!-- Glow behind image -->
+        <div class="orbit-glow"></div>
+
+        <!-- Central makhana image -->
+        <div class="orbit-center">
+          <img src="assets/makhana-bowl.png" alt="Makhana Bowl" class="makhana-hero-img" />
+        </div>
+
+        <!-- Orbiting tags -->
+        <div class="orbit-ring">
+          <div class="orbit-tag tag-top-left">
+            <span class="tag-dot"></span>Low Calorie
+          </div>
+          <div class="orbit-tag tag-top-right">
+            <span class="tag-dot"></span>High Protein
+          </div>
+          <div class="orbit-tag tag-bottom">
+            <span class="tag-dot"></span>Gluten Free
+          </div>
+          <div class="orbit-tag tag-left">
+            <span class="tag-dot"></span>Antioxidant
+          </div>
+          <div class="orbit-tag tag-right">
+            <span class="tag-dot"></span>Heart Healthy
+          </div>
+          <!-- Orbiting dots -->
+          <div class="orbit-dot dot-1"></div>
+          <div class="orbit-dot dot-2"></div>
+          <div class="orbit-dot dot-3"></div>
+          <div class="orbit-dot dot-4"></div>
+          <div class="orbit-dot dot-5"></div>
+          <div class="orbit-dot dot-6"></div>
+          <div class="orbit-dot dot-7"></div>
+          <div class="orbit-dot dot-8"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Scroll to discover</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE BAND -->
+  <div class="marquee-band">
+    <div class="marquee-track">
+      <span>🌿 100% Natural</span><span>•</span>
+      <span>🪷 Bihar Harvested</span><span>•</span>
+      <span>✈️ Ships Worldwide</span><span>•</span>
+      <span>🌾 Gluten Free</span><span>•</span>
+      <span>💪 High Protein</span><span>•</span>
+      <span>🫀 Heart Healthy</span><span>•</span>
+      <span>🌿 100% Natural</span><span>•</span>
+      <span>🪷 Bihar Harvested</span><span>•</span>
+      <span>✈️ Ships Worldwide</span><span>•</span>
+      <span>🌾 Gluten Free</span><span>•</span>
+      <span>💪 High Protein</span><span>•</span>
+      <span>🫀 Heart Healthy</span><span>•</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="about-visual">
+      <div class="about-img-stack">
+        <div class="about-card card1">
+          <div class="card-icon">🪷</div>
+          <p>Harvested from pristine Bihar ponds</p>
+        </div>
+        <div class="about-card card2">
+          <div class="card-icon">🌾</div>
+          <p>Slow-roasted in small batches</p>
+        </div>
+        <div class="about-card card3">
+          <div class="card-icon">📦</div>
+          <p>Sealed fresh, shipped worldwide</p>
+        </div>
+        <div class="pond-circle">
+          <span>Est.<br/>2018</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-tag">Our Story</div>
+      <h2 class="section-title">From Sacred<br/><em>Lotus Ponds</em><br/>To Your Hands</h2>
+      <p class="about-text">Swaraj Makhana was born from a simple belief — India's most ancient superfood deserves to reach every corner of the world. We partner directly with farmers in Bihar's Mithila region, where makhana (fox nuts) have been harvested for over 3,000 years.</p>
+      <p class="about-text">Every pouch carries the story of lotus ponds, skilled hands, and a tradition that's survived millennia. We keep that tradition alive — with zero additives, zero compromise.</p>
+      <div class="about-pillars">
+        <div class="pillar">
+          <span class="pillar-icon">🌱</span>
+          <strong>Farmer First</strong>
+          <p>Direct partnerships, fair wages</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">🔬</span>
+          <strong>Lab Tested</strong>
+          <p>Every batch quality certified</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">♻️</span>
+          <strong>Eco Packed</strong>
+          <p>Recyclable, minimal packaging</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="products">
+    <div class="products-header">
+      <div class="section-tag">Shop Our Range</div>
+      <h2 class="section-title">Pick Your<br/><em>Crunch</em></h2>
+      <p>Artisan-roasted makhana in flavours for every palate. All natural, all delicious.</p>
+    </div>
+    <div class="product-filters">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+      <button class="filter-btn" onclick="filterProducts('classic', this)">Classic</button>
+      <button class="filter-btn" onclick="filterProducts('spicy', this)">Spicy</button>
+      <button class="filter-btn" onclick="filterProducts('sweet', this)">Sweet</button>
+      <button class="filter-btn" onclick="filterProducts('premium', this)">Premium</button>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+
+  <!-- NUTRITION -->
+  <section id="nutrition" class="nutrition">
+    <div class="nutrition-content">
+      <div class="section-tag">Why Makhana?</div>
+      <h2 class="section-title">Nature's Most<br/><em>Perfect Snack</em></h2>
+      <p>Ancient Ayurveda called it "the food of gods." Modern nutrition science agrees.</p>
+      <div class="nutrition-grid" id="nutritionGrid"></div>
+    </div>
+    <div class="nutrition-visual">
+      <div class="nutrition-circle">
+        <div class="donut-chart">
+          <svg viewBox="0 0 200 200" class="donut-svg">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#1a3a1a" stroke-width="30"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#c8922a" stroke-width="30" stroke-dasharray="150 352" stroke-dashoffset="0" class="donut-protein"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#4a7c59" stroke-width="30" stroke-dasharray="80 352" stroke-dashoffset="-150" class="donut-carb"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#8fbc8b" stroke-width="30" stroke-dasharray="60 352" stroke-dashoffset="-230" class="donut-fiber"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#2d5a27" stroke-width="30" stroke-dasharray="62 352" stroke-dashoffset="-290" class="donut-other"/>
+          </svg>
+          <div class="donut-center">
+            <span class="donut-label">Makhana</span>
+            <span class="donut-cal">347</span>
+            <span class="donut-unit">cal/100g</span>
+          </div>
+        </div>
+        <div class="donut-legend">
+          <div class="legend-item"><span style="background:#c8922a"></span>Protein 9.7g</div>
+          <div class="legend-item"><span style="background:#4a7c59"></span>Carbs 76.9g</div>
+          <div class="legend-item"><span style="background:#8fbc8b"></span>Fiber 14.5g</div>
+          <div class="legend-item"><span style="background:#2d5a27"></span>Fat 0.1g</div>
+        </div>
+      </div>
+      <div class="vs-chip">vs Chips: 80% less fat ✓</div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials">
+    <div class="section-tag">What People Say</div>
+    <h2 class="section-title">Loved Across<br/><em>The India</em></h2>
+    <div class="testimonials-track" id="testimonialsTrack"></div>
+    <div class="testimonial-dots" id="testimonialDots"></div>
+  </section>
+
+  <!-- INDIA SHIPPING -->
+  <section class="global-shipping">
+    <div class="globe-content">
+      <div class="section-tag">Pan-India Delivery</div>
+      <h2 class="section-title">We Ship Across<br/><em>India 🇮🇳</em></h2>
+      <p>From Kashmir to Kanyakumari, Mumbai to Manipur — fresh Makhana delivered to your doorstep in 3–7 business days anywhere in India.</p>
+      <div class="shipping-flags" style="font-size:1.1rem; letter-spacing:2px; color:rgba(250,246,238,0.75);">
+        Delhi &nbsp;·&nbsp; Mumbai &nbsp;·&nbsp; Bangalore &nbsp;·&nbsp; Chennai &nbsp;·&nbsp; Kolkata &nbsp;·&nbsp; Hyderabad &nbsp;·&nbsp; Pune &nbsp;·&nbsp; Ahmedabad &nbsp;·&nbsp; Jaipur &nbsp;·&nbsp; Lucknow
+      </div>
+      <div class="shipping-perks">
+        <div class="perk">📦 Free shipping on orders above ₹999</div>
+        <div class="perk">🚀 Express delivery in 1–2 days (metro cities)</div>
+        <div class="perk">🔒 100% safe & tamper-proof packaging</div>
+        <div class="perk">📍 Delivered to all 28 states & 8 UTs</div>
+      </div>
+    </div>
+    <div class="globe-visual">
+      <div class="globe-ring ring1"></div>
+      <div class="globe-ring ring2"></div>
+      <div class="globe-ring ring3"></div>
+      <div class="globe-center">🗺️</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-title">We'd Love To<br/><em>Hear From You</em></h2>
+        <div class="contact-details">
+          <div class="contact-item">📧 <a href="mailto:hello@swarajmakhana.com">hello@swarajmakhana.com</a></div>
+          <div class="contact-item">📞 <a href="tel:+911800000000">+91 1800-000-000</a></div>
+          <div class="contact-item">📍 Mithila House, Darbhanga, Bihar 846001, India</div>
+        </div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/stanza.js?igsh=am44ZzRjNGprMjRr&utm_source=qr" class="social-btn">Instagram</a>
+          <a href="#" class="social-btn">Facebook</a>
+          <a href="https://api.whatsapp.com/send/?phone=%2B917011576605&text&type=phone_number&app_absent=0" class="social-btn">WhatsApp</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="submitContact(event)">
+        <div class="form-group">
+          <input type="text" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email Address" required />
+        </div>
+        <div class="form-group">
+          <select>
+            <option value="">Subject</option>
+            <option>Order Enquiry</option>
+            <option>Wholesale / B2B</option>
+            <option>Press / Media</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Your message..." rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn-primary full-width">Send Message 🪷</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Swaraj Makhana" class="footer-logo" />
+        <p>Pure Makhana from Bihar's sacred lotus ponds — harvested with care, delivered with love.</p>
+        <p class="footer-tagline">🌿 Desh ka Swad, Sehat ke Saath</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#products">Shop</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#nutrition">Nutrition</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Get 10% Off</h4>
+        <p>Subscribe for deals, recipes, and wellness tips.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="your@email.com" />
+          <button onclick="subscribeNewsletter()">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Swaraj Makhana. All rights reserved. Made with 🪷 in Bihar, India.</p>
+      <div class="payment-icons">
+        <span class="pay-icon">VISA</span>
+        <span class="pay-icon">MC</span>
+        <span class="pay-icon">UPI</span>
+        <span class="pay-icon">GPay</span>
+        <span class="pay-icon">PhonePe</span>
+        <span class="pay-icon">Paytm</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart 🛒</h3>
+      <button onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        <span>🪷</span>
+        <p>Your cart is empty</p>
+        <button class="btn-primary" onclick="closeCart(); document.getElementById('products').scrollIntoView({behavior:'smooth'})">Start Shopping</button>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span>Total:</span>
+        <strong id="cartTotalAmt">₹0</strong>
+      </div>
+      <div class="currency-note">* All prices in INR. GST included.</div>
+      <button class="btn-primary full-width" onclick="openCheckout()">Proceed to Checkout →</button>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+  <div class="checkout-modal" id="checkoutModal">
+    <button class="modal-close" onclick="closeCheckout()">✕</button>
+    <div class="checkout-steps">
+      <div class="step active" id="step1Indicator">1. Delivery</div>
+      <div class="step" id="step2Indicator">2. Payment</div>
+      <div class="step" id="step3Indicator">3. Confirm</div>
+    </div>
+
+    <!-- Step 1: Delivery -->
+    <div class="checkout-step" id="checkoutStep1">
+      <h3>Delivery Details</h3>
+      <div class="form-row">
+        <div class="form-group"><input type="text" id="firstName" placeholder="First Name" /></div>
+        <div class="form-group"><input type="text" id="lastName" placeholder="Last Name" /></div>
+      </div>
+      <div class="form-group"><input type="email" id="email" placeholder="Email Address" /></div>
+      <div class="form-group"><input type="tel" id="phone" placeholder="Phone Number" /></div>
+      <div class="form-group"><input type="text" id="address" placeholder="Street Address" /></div>
+      <div class="form-row">
+        <div class="form-group"><input type="text" id="city" placeholder="City" /></div>
+        <div class="form-group"><input type="text" id="postcode" placeholder="Postcode" /></div>
+      </div>
+      <div class="form-group">
+        <select id="country">
+          <option value="">Select State / UT</option>
+          <option value="DL">Delhi</option>
+          <option value="MH">Maharashtra</option>
+          <option value="KA">Karnataka</option>
+          <option value="TN">Tamil Nadu</option>
+          <option value="WB">West Bengal</option>
+          <option value="TS">Telangana</option>
+          <option value="GJ">Gujarat</option>
+          <option value="RJ">Rajasthan</option>
+          <option value="UP">Uttar Pradesh</option>
+          <option value="BR">Bihar</option>
+          <option value="MP">Madhya Pradesh</option>
+          <option value="PB">Punjab</option>
+          <option value="HR">Haryana</option>
+          <option value="KL">Kerala</option>
+          <option value="AP">Andhra Pradesh</option>
+          <option value="AS">Assam</option>
+          <option value="JK">Jammu & Kashmir</option>
+          <option value="HP">Himachal Pradesh</option>
+          <option value="UK">Uttarakhand</option>
+          <option value="GA">Goa</option>
+          <option value="other">Other State / UT</option>
+        </select>
+      </div>
+      <button class="btn-primary full-width" onclick="goToStep(2)">Continue to Payment →</button>
+    </div>
+
+    <!-- Step 2: Payment -->
+    <div class="checkout-step hidden" id="checkoutStep2">
+      <h3>Payment</h3>
+      <div class="payment-methods">
+        <div class="pay-method active" onclick="selectPayment('card', this)">
+          <span>💳</span> Credit / Debit Card
+        </div>
+        <div class="pay-method" onclick="selectPayment('upi', this)">
+          <span>📱</span> UPI
+        </div>
+        <div class="pay-method" onclick="selectPayment('paypal', this)">
+          <span>🅿️</span> PayPal
+        </div>
+        <div class="pay-method" onclick="selectPayment('netbanking', this)">
+          <span>🏦</span> Net Banking
+        </div>
+      </div>
+
+      <div id="cardForm" class="payment-form">
+        <div class="form-group">
+          <input type="text" id="cardNumber" placeholder="Card Number" maxlength="19" oninput="formatCard(this)" />
+        </div>
+        <div class="form-group">
+          <input type="text" id="cardName" placeholder="Cardholder Name" />
+        </div>
+        <div class="form-row">
+          <div class="form-group"><input type="text" id="cardExpiry" placeholder="MM / YY" maxlength="7" oninput="formatExpiry(this)" /></div>
+          <div class="form-group"><input type="text" id="cardCvv" placeholder="CVV" maxlength="4" /></div>
+        </div>
+        <div class="secure-badge">🔒 256-bit SSL Encrypted. Your payment is secure.</div>
+      </div>
+
+      <div id="upiForm" class="payment-form hidden">
+        <div class="form-group">
+          <input type="text" id="upiId" placeholder="yourname@upi" />
+        </div>
+        <div class="secure-badge">🔒 Powered by NPCI. Safe & instant.</div>
+      </div>
+
+      <div id="paypalForm" class="payment-form hidden">
+        <div class="paypal-info">
+          <p>You'll be redirected to PayPal to complete your payment securely.</p>
+          <div class="paypal-logo">PayPal</div>
+        </div>
+      </div>
+
+      <div id="netbankingForm" class="payment-form hidden">
+        <div class="form-group">
+          <select id="bankSelect">
+            <option value="">Select your bank</option>
+            <option>State Bank of India</option>
+            <option>HDFC Bank</option>
+            <option>ICICI Bank</option>
+            <option>Axis Bank</option>
+            <option>Kotak Mahindra Bank</option>
+            <option>Punjab National Bank</option>
+            <option>Bank of Baroda</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="order-summary-mini" id="orderSummaryMini"></div>
+      <div class="form-row" style="gap:10px;margin-top:20px">
+        <button class="btn-secondary" onclick="goToStep(1)">← Back</button>
+        <button class="btn-primary" style="flex:1" onclick="placeOrder()">Place Order 🛍️</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Confirmation -->
+    <div class="checkout-step hidden" id="checkoutStep3">
+      <div class="order-success">
+        <div class="success-icon">✅</div>
+        <h3>Order Placed!</h3>
+        <p>Thank you for choosing Swaraj Makhana. Your order has been confirmed!</p>
+        <div class="order-id">Order #<span id="orderIdDisplay"></span></div>
+        <p class="success-note">A confirmation email will be sent to your inbox. Your crunchy goodness ships within 24 hours! 🚀</p>
+        <button class="btn-primary full-width" onclick="closeCheckout(); clearCart()">Continue Shopping 🪷</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
